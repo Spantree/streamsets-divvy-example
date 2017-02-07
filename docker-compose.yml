@@ -1,13 +1,18 @@
-version: '2'
+version: '2.1'
 services:
   datacollector:
     image: streamsets/datacollector
     ports:
       - "18630:18630"
+    environment:
+      SDC_JAVA_OPTS: "-Xmx2g"
     volumes:
-      - "./data:/data"
+      - "./data/sdc:/data"
+      - "./data/input:/var/data/"
   elasticsearch:
     image: elasticsearch:5.1.1
+    environment:
+      ES_JAVA_OPTS: "-Xms4g -Xmx4g"
     ports:
       - "9200:9200"
       - "9300:9300"
