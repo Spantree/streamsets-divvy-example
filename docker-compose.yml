@@ -1,0 +1,42 @@
+version: '2'
+services:
+  datacollector:
+    image: streamsets/datacollector
+    ports:
+      - "18630:18630"
+    volumes:
+      - "./data:/data"
+  elasticsearch:
+    image: elasticsearch:5.1.1
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+  kibana:
+    image: kibana:5.1
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+  cassandra:
+    image: cassandra:3.9
+    ports:
+      - "7000:7000"
+      - "7001:7001"
+      - "7199:7199"
+      - "9042:9042"
+      - "9160:9160"
+  redis:
+    image: redis:3.2
+    ports:
+      - "6379:6379"
+  redis_commander:
+    image: osado/redis-commander
+    ports:
+      - "8081:8081"
+    environment:
+      WEB_USER: admin
+      WEB_PASS: password
+    depends_on:
+      - redis
