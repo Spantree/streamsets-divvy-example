@@ -1,5 +1,3 @@
-data/input/divvy
-data/pipelines
-data/runInfo
+data/
+!.gitkeep
 tmp
-sdc.id

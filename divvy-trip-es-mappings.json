@@ -1,0 +1,61 @@
+{
+  "properties": {
+    "start_time": {
+      "type": "date",
+      "format": "yyyy-MM-dd HH:mm||MM/dd/yyyy HH:mm||epoch_millis"
+    },
+    "end_time": {
+      "type": "date",
+      "format": "yyyy-MM-dd HH:mm||MM/dd/yyyy HH:mm||epoch_millis"
+    },
+    "bike_id": {
+      "type": "integer"
+    },
+    "trip_duration": {
+      "type": "integer"
+    },
+    "user": {
+      "type": "nested",
+      "properties": {
+        "type": {
+          "type": "keyword"
+        },
+        "gender": {
+          "type": "keyword"
+        },
+        "birth_year": {
+          "type": "date",
+          "format": "yyyy"
+        }
+      }
+    },
+    "from_station": {
+      "type": "nested",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "keyword"
+        },
+        "geopoint": {
+          "type": "geo_point"
+        }
+      }
+    },
+    "to_station": {
+      "type": "nested",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "keyword"
+        },
+        "geopoint": {
+          "type": "geo_point"
+        }
+      }
+    }
+  }
+}
