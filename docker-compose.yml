@@ -57,3 +57,11 @@ services:
        TOPICS: "divvy-trip-input,divvy-trip-load"
      volumes:
        - /var/run/docker.sock:/var/run/docker.sock
+  zeppelin:
+    image: dylanmei/zeppelin:0.7.0
+    ports:
+      - "8080:8080"
+    depends_on:
+      - kafka
+      - cassandra
+      - elasticsearch
