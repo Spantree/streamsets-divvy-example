@@ -1,0 +1,7 @@
+checkpoint
+project/project
+project/target
+spark-warehouse
+target/resolution-cache
+target/streams
+target/scala-2.11/classes
