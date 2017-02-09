@@ -67,4 +67,4 @@ services:
       - elasticsearch
   kafka-spark-streaming:
     build: kafka-spark-streaming
-    command: ["kafka:9092", "divvy-ride-load"]
+    command: ["run-main io.kafkaspark.Main kafka:9092 divvy-ride-load"]
