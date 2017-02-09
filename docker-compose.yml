@@ -1,4 +1,4 @@
-version: '2.1'
+version: '2'
 services:
   datacollector:
     build: sdc
@@ -65,3 +65,6 @@ services:
       - kafka
       - cassandra
       - elasticsearch
+  kafka-spark-streaming:
+    build: kafka-spark-streaming
+    command: ["kafka:9092", "divvy-ride-load"]
